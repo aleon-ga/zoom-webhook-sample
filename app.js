@@ -15,6 +15,19 @@ app.use([
 // Routes
 app.use('/', require('./src/routes'));
 
+// Error-handling middleware
+app.use((err, req, res, next) => {
+
+    console.error(err);
+
+    if (!res.headersSent) {
+
+        res.status(500).send('Internal Server Error');
+
+    };
+    
+});
+
 // Server port
 const PORT = process.env.PORT || 3000;
 
