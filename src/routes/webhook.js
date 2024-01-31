@@ -7,13 +7,11 @@ router.post('/webhook', [validateSignature], (req, res) => {
 
     console.log(response.message);
 
-    console.log('BEFORE RES:', req.body);
-
     res.status(response.status).json(response);
 
-    console.log('AFTER RES:', req.body);
+    console.log(req.body);
 
-    //? Business logic here, example make API request to Zoom or 3rd party
+    // Business logic here, example make API request to Zoom or 3rd party
 
     return;
 
